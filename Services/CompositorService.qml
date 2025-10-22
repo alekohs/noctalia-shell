@@ -342,6 +342,11 @@ Singleton {
     Quickshell.execDetached(["systemctl", "suspend"])
   }
 
+  function lock() {
+    Logger.i("Compositor", "Lock requested")
+    Quickshell.execDetached(["pidof", "hyprlock", ">/dev/null", "||", "hyprlock"])
+  }
+
   function lockAndSuspend() {
     Logger.i("Compositor", "Lock and suspend requested")
     try {
